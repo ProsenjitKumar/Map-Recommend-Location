@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form id="login_form" method="post" action="/login/" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+
+					<div class="wthree-text">
+						<label class="anim">
+							<input type="checkbox" class="checkbox" required="">
+							<span>I Agree To The Terms & Conditions</span>
+						</label>
+						<div class="clear"> </div>
+					</div>
+					<input type="submit" value="Signin">
+				</form>
+				<p>Don't have an Account? <a href="{% url 'registration' %}"> Registration Now!</a></p>
+			</div>
+</div>
+
+</body>
+</html>

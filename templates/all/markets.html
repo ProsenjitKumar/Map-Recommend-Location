@@ -1,0 +1,208 @@
+{% extends 'listing.html' %}
+{% load static %}
+
+{% block head %}
+    <title>markets List</title>
+{% endblock %}
+
+{% block content %}
+
+        <!--============================= DETAIL =============================-->
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-7 responsive-wrap">
+                    <div class="row detail-filter-wrap">
+                        <div class="col-md-4 featured-responsive">
+                            <div class="detail-filter-text">
+                                <p>{{ markets.count }} Results For <span>Market</span></p>
+                            </div>
+                        </div>
+                        <div class="col-md-8 featured-responsive">
+                            <div class="detail-filter">
+                                <p>Filter by</p>
+                                <form class="filter-dropdown">
+                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+                  <option selected>Best Match</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+                                </form>
+                                <form class="filter-dropdown">
+                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect1">
+                  <option selected>Restaurants</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+                                </form>
+                                <div class="map-responsive-wrap">
+                                    <a class="map-icon" href="#"><span class="icon-location-pin"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row detail-checkbox-wrap">
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+
+                            <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Bike Parking</span>
+              </label>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                            <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Wireless Internet  </span>
+              </label>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+
+                            <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Smoking Allowed  </span>
+              </label>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                            <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Street Parking</span>
+              </label>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+
+                            <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Special</span>
+              </label>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                            <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Accepts Credit cards</span>
+              </label>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+
+                            <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Pets Friendly</span>
+              </label>
+
+                        </div>
+                    </div>
+                    <div class="row light-bg detail-options-wrap">
+
+                        {% for market in markets %}
+                        <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
+                            <div class="featured-place-wrap">
+                                <a href="detail.html">
+                                    <img src="{% static 'images/featured1.jpg' %}" class="img-fluid" alt="#">
+                                    <span class="featured-rating-orange ">{{ market.rating }}</span>
+                                    <div class="featured-title-box">
+                                        <h6>{{ market.market_nam }}</h6>
+                                        <p> {{ market.point }} </p> <span>• </span>
+                                        <p>26 reviews</p> <span> • </span>
+                                        <p><span>$$$</span>$$</p>
+                                        <ul>
+                                            <li><span class="icon-location-pin"></span>
+                                                <p>{{ market.location }}</p>
+                                            </li>
+                                            <li><span class="icon-screen-smartphone"></span>
+                                                <p>Description</p>
+                                            </li>
+                                            <li><span class="icon-link"></span>
+                                                <p>https://facebook.com/prosenjit1994</p>
+                                            </li>
+
+                                        </ul>
+                                        <div class="bottom-icons">
+                                            <div class="closed-now">CLOSED NOW</div>
+                                            <span class="ti-heart"></span>
+                                            <span class="ti-bookmark"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+                <div class="col-md-5 responsive-wrap map-wrap">
+                    <div class="map-fix">
+                        <!-- data-toggle="affix" -->
+                        <!-- Google map will appear here! Edit the Latitude, Longitude and Zoom Level below using data-attr-*  -->
+                        <div id="map" data-lat="40.674" data-lon="-73.945" data-zoom="14"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--//END DETAIL -->
+
+
+<div id="map"></div>
+    <script>
+
+    var locations = [
+        ['Bondi Beach', -33.890542, 151.274856, 4],
+        ['Coogee Beach', -33.923036, 151.259052, 5],
+        ['Cronulla Beach', -34.028249, 151.157507, 3],
+        ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+        ['Maroubra Beach', -33.950198, 151.259302, 1]
+    ];
+
+
+    // When the user clicks the marker, an info window opens.
+
+    function initMap() {
+        var myLatLng = {lat: -33.90, lng: 151.16};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: myLatLng
+            });
+
+        var count=0;
+
+
+        for (count = 0; count < locations.length; count++) {
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[count][1], locations[count][2]),
+                map: map
+                });
+
+            marker.info = new google.maps.InfoWindow({
+                content: locations [count][0]
+                });
+
+
+            google.maps.event.addListener(marker, 'click', function() {
+                // this = marker
+                var marker_map = this.getMap();
+                this.info.open(marker_map, this);
+                // Note: If you call open() without passing a marker, the InfoWindow will use the position specified upon construction through the InfoWindowOptions object literal.
+                });
+        }
+    }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqEz7ozYxKa53JAeN4GFN2HfilyiFCbvw&callback=initMap">
+    </script>
+
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 style="color: #1e7e34">Google Map</h1>
+
+
+<p id="demo"></p>
+
+
+
+<body>
+
+<div id="map" style="padding-bottom: 140px; padding-top: 140px"></div>
+ <script>
+    function initMap() {
+    var uluru = {lat: {{ restaurents_id.latitude }}, lng: {{ restaurents_id.longitude }} };
+    var map = new google.maps.Map(
+    document.getElementById('map'), {zoom: 16, center: uluru});
+    var marker = new google.maps.Marker({position: uluru, map: map, title: '{{ restaurents_id.restaurant }}'});
+    }
+    document.getElementById("map").innerHTML = "bangladesh"
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqEz7ozYxKa53JAeN4GFN2HfilyiFCbvw&callback=initMap">
+</script>
+
+</body>
+</html>
